@@ -1,6 +1,6 @@
 ﻿namespace Domain.Accounts.Factory;
 
-internal sealed class AccountFactory
+internal sealed class AccountFactory : IAccountFactory
 {
     
 }

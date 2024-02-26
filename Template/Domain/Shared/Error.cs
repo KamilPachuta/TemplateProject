@@ -1,6 +1,6 @@
 ﻿namespace Domain.Shared;
 
-public class Error
+public sealed record Error(string Code, string? Description = null) // move to SharedKernel
 {
-    
+    public static readonly Error None = new(string.Empty);
 }

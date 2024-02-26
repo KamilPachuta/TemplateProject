@@ -1,6 +1,8 @@
-﻿namespace Domain.Shared;
+﻿using MediatR;
 
-public class IDomainEvent
+namespace Domain.Shared;
+
+public interface IDomainEvent : INotification
 {
     
 }
