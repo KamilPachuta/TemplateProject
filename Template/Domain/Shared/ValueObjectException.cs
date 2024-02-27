@@ -1,3 +1,3 @@
 ﻿namespace Domain.Shared;
 
-internal abstract class ValueObjectException(string message) : Exception(message);
+public abstract class ValueObjectException(string message) : Exception(message);

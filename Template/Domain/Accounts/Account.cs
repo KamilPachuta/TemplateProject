@@ -9,18 +9,19 @@ public class Account : AggregateRoot
     public AccountEmail Email { get; }
     public AccountPasswordHash PasswordHash { get; private set; }
     public AccountRole Role { get; }
-    public bool Aproved { get; private set; }
+    public bool Approved { get; private set; }
 
     private Account() //Provided for EF core
     {
     }
     
-    internal Account(AccountEmail email, AccountPasswordHash passwordHash, AccountRole role)
+    internal Account(Guid id, AccountEmail email, string password, AccountRole role, IPasswordHasher<Account> passwordHasher)
+        : base(id)
     {
         Email = email;
-        PasswordHash = passwordHash;
+        PasswordHash = new AccountPasswordHash(password, this, passwordHasher);
         Role = role;
-        Aproved = false;
+        Approved = false;
         
         //RaiseDomainEvent();
     }
